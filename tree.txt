@@ -1,0 +1,84 @@
+.
+|-- LICENSE
+|-- Makefile
+|-- README.md
+|-- bin
+|   `-- console
+|-- composer.json
+|-- composer.lock
+|-- config
+|   |-- bundles.php
+|   |-- monolog.yaml
+|   |-- packages
+|   |   |-- framework.yaml
+|   |   `-- twig.yaml
+|   |-- routes.yaml
+|   |-- services.yaml
+|   `-- services_ddd.yaml
+|-- docker-compose.yaml
+|-- src
+|   |-- Common
+|   |   |-- Exception
+|   |   |   |-- CommonException.php
+|   |   |   `-- Error.php
+|   |   |-- Mapper
+|   |   |   `-- MapperException.php
+|   |   |-- Repository
+|   |   |   `-- RepositoryException.php
+|   |   |-- Util
+|   |   |   |-- EnumTrait.php
+|   |   |   |-- GetterSetterTrait.php
+|   |   |   |-- GlobalConfig.php
+|   |   |   `-- UuidService.php
+|   |   `-- ValueObject
+|   |       |-- AbstractValueObject.php
+|   |       |-- IdVo.php
+|   |       |-- ValueObjectException.php
+|   |       `-- ValueObjectInterface.php
+|   |-- Component
+|   |   |-- Attribute
+|   |   |   `-- Mapper.php
+|   |   |-- Mapper
+|   |   |   |-- AbstractMapper.php
+|   |   |   |-- AutoMapper.php
+|   |   |   |-- DependencyInjection.php
+|   |   |   |-- GenericMapper.php
+|   |   |   `-- MapperInterface.php
+|   |   `-- Symfony
+|   |       `-- CompilerPass
+|   |           `-- AutoMapperPass.php
+|   |-- Context
+|   |   `-- User
+|   |       |-- Application
+|   |       |   |-- Dto
+|   |       |   |   `-- UserDto.php
+|   |       |   |-- Mapper
+|   |       |   |   `-- UserMapper.php
+|   |       |   `-- UseCase
+|   |       |       |-- SaveUser
+|   |       |       |-- UserById
+|   |       |       `-- UserList
+|   |       |-- Domain
+|   |       |   |-- Entity
+|   |       |   |   |-- User.php
+|   |       |   |   `-- UserStatus.php
+|   |       |   `-- Repository
+|   |       |       `-- UserRepositoryInterface.php
+|   |       |-- Infrastructure
+|   |       |   `-- Persistence
+|   |       |       `-- Repository
+|   |       `-- Web
+|   |           `-- UserController.php
+|   `-- Kernel.php
+|-- templates
+|   |-- context
+|   |   `-- user
+|   |       |-- user.html.twig
+|   |       `-- users.html.twig
+|   `-- layout
+|       |-- _partials
+|       |   `-- menu.html.twig
+|       `-- base.html.twig
+`-- tree.txt
+
+36 directories, 45 files

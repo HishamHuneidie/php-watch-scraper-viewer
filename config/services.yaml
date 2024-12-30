@@ -1,0 +1,23 @@
+parameters:
+  locale: en
+
+imports:
+  - { resource: services_ddd.yaml }
+
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+
+  CodeAnalyzer\:
+    resource: '../src/'
+    exclude:
+      - '../src/DependencyInjection/'
+      - '../src/Entity/'
+      - '../src/Kernel.php'
+      - '../src/Context/*/Application/UseCase/*/*Query.php'
+      - '../src/Context/*/Application/UseCase/*/*Command.php'
+      - '../src/Context/*/Application/Dto/'
+      - '../src/Component/'
+      - '../src/Common/'

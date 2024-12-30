@@ -1,0 +1,12 @@
+user_api_controllers:
+  resource:
+    path: '../src/Context/User/Api'
+    namespace: CodeAnalyzer\Context\User\Api
+  type: attribute
+  prefix: /public/v1
+
+user_web_controllers:
+  resource:
+    path: '../src/Context/User/Web'
+    namespace: CodeAnalyzer\Context\User\Web
+  type: attribute

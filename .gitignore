@@ -1,0 +1,22 @@
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de configuración del entorno
+/.env.local
+
+# Directorios de dependencias
+node_modules/
+vendor/
+
+# Archivos de logs y cache
+*.log
+/public/bundles/
+/var/
+/vendor/
+/node_modules/
+/public/build/
+
+# Configuración de IDEs
+/.vscode/
+/.idea/
