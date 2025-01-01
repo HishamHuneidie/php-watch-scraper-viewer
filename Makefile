@@ -9,6 +9,7 @@ DOCKER_PREFIX = php-wiewer
 DB_USER = db_user
 DB_NAME = php-wiewer-db
 DB_PASS = 123
+TREE_FILE = tree.txt
 
 # Show a small explanation of this Makefile and its commands
 .PHONY: help
@@ -66,7 +67,13 @@ composer-add:
 # Update/Generate directory tree
 .PHONY: tree
 tree:
-	${DOCKER_COMPOSE} -p ${DOCKER_PREFIX} exec ${DOCKER_MAIN_CONTAINER} tree -L 6 -I "var|vendor|node_modules|public" > tree.txt
+	${DOCKER_COMPOSE} -p ${DOCKER_PREFIX} exec ${DOCKER_MAIN_CONTAINER} tree -L 6 -I "var|vendor|node_modules|public" > ${TREE_FILE}
+
+# Update/Generate directory tree before commit
+.PHONY: tree-commit
+tree-commit:
+	make tree
+	git add ${TREE_FILE}
 
 # This command is showed when the used command does not exist
 .DEFAULT:

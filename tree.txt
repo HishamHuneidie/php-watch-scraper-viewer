@@ -18,12 +18,15 @@
 |-- docker-compose.yaml
 |-- src
 |   |-- Common
+|   |   |-- Enum
+|   |   |   `-- HttpMethod.php
 |   |   |-- Exception
 |   |   |   |-- CommonException.php
 |   |   |   `-- Error.php
 |   |   |-- Mapper
 |   |   |   `-- MapperException.php
 |   |   |-- Repository
+|   |   |   |-- AbstractScrapRepository.php
 |   |   |   `-- RepositoryException.php
 |   |   |-- Util
 |   |   |   |-- EnumTrait.php
@@ -74,13 +77,17 @@
 |   |       |-- Api
 |   |       |-- Application
 |   |       |   |-- Dto
+|   |       |   |   |-- LinkVoDto.php
 |   |       |   |   `-- RfcDto.php
 |   |       |   |-- Mapper
+|   |       |   |   |-- LinkVoMapper.php
 |   |       |   |   `-- RfcMapper.php
 |   |       |   `-- UseCase
-|   |       |       `-- RfcList.php
+|   |       |       |-- RfcByLink
+|   |       |       `-- RfcList
 |   |       |-- Domain
 |   |       |   |-- Entity
+|   |       |   |   |-- LinkVo.php
 |   |       |   |   `-- Rfc.php
 |   |       |   `-- Repository
 |   |       |       `-- RfcRepositoryInterface.php
@@ -101,4 +108,4 @@
 |       `-- base.html.twig
 `-- tree.txt
 
-50 directories, 51 files
+53 directories, 55 files
