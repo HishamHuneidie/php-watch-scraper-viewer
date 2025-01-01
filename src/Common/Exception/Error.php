@@ -1,6 +1,6 @@
 <?php
 
-namespace CodeAnalyzer\Common\Exception;
+namespace App\Common\Exception;
 
 final readonly class Error
 {

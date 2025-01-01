@@ -1,10 +1,10 @@
 <?php
 
-namespace CodeAnalyzer\Component\Mapper;
+namespace App\Component\Mapper;
 
-use CodeAnalyzer\Common\Mapper\MapperException;
-use CodeAnalyzer\Context\User\Application\Dto\UserDto;
-use CodeAnalyzer\Context\User\Domain\Entity\User;
+use App\Common\Mapper\MapperException;
+use App\Context\User\Application\Dto\UserDto;
+use App\Context\User\Domain\Entity\User;
 use Exception;
 
 /**
@@ -48,6 +48,7 @@ abstract class AbstractMapper implements MapperInterface
      * Set a generic mapper
      *
      * @param MapperInterface $mapper
+     *
      * @return void
      */
     public function setGenericMapper(MapperInterface $mapper): void

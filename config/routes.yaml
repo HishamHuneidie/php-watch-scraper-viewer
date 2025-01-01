@@ -1,7 +1,9 @@
+# Users context
+
 user_api_controllers:
   resource:
     path: '../src/Context/User/Api'
-    namespace: CodeAnalyzer\Context\User\Api
+    namespace: App\Context\User\Api
   type: attribute
   prefix: /public/v1
 

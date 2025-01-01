@@ -1,14 +1,14 @@
 <?php
 
-namespace CodeAnalyzer\Context\User\Web;
+namespace App\Context\User\Web;
 
-use CodeAnalyzer\Common\Mapper\MapperException;
-use CodeAnalyzer\Common\Repository\RepositoryException;
-use CodeAnalyzer\Common\ValueObject\ValueObjectException;
-use CodeAnalyzer\Context\User\Application\UseCase\SaveUser\SaveUser;
-use CodeAnalyzer\Context\User\Application\UseCase\SaveUser\SaveUserCommand;
-use CodeAnalyzer\Context\User\Application\UseCase\UserById\UserById;
-use CodeAnalyzer\Context\User\Application\UseCase\UserList\UserList;
+use App\Common\Mapper\MapperException;
+use App\Common\Repository\RepositoryException;
+use App\Common\ValueObject\ValueObjectException;
+use App\Context\User\Application\UseCase\SaveUser\SaveUser;
+use App\Context\User\Application\UseCase\SaveUser\SaveUserCommand;
+use App\Context\User\Application\UseCase\UserById\UserById;
+use App\Context\User\Application\UseCase\UserList\UserList;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\MapRequestPayload;

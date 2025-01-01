@@ -1,10 +1,10 @@
 <?php
 
-namespace CodeAnalyzer\Component\Symfony\CompilerPass;
+namespace App\Component\Symfony\CompilerPass;
 
-use CodeAnalyzer\Component\Attribute\Mapper;
-use CodeAnalyzer\Component\Mapper\AutoMapper;
-use CodeAnalyzer\Component\Mapper\MapperInterface;
+use App\Component\Attribute\Mapper;
+use App\Component\Mapper\AutoMapper;
+use App\Component\Mapper\MapperInterface;
 use ReflectionClass;
 use ReflectionException;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
@@ -15,6 +15,7 @@ class AutoMapperPass implements CompilerPassInterface
 {
     /**
      * @param ContainerBuilder $container
+     *
      * @return void
      * @throws ReflectionException
      */
@@ -67,7 +68,8 @@ class AutoMapperPass implements CompilerPassInterface
      * Get mapper container definition or create a new one
      *
      * @param ContainerBuilder $container
-     * @param string $mapper
+     * @param string           $mapper
+     *
      * @return Definition
      */
     private function resolveMapperDefinition(ContainerBuilder $container, string $mapper): Definition

@@ -1,16 +1,16 @@
 <?php
 
-namespace CodeAnalyzer\Context\User\Application\Mapper;
+namespace App\Context\User\Application\Mapper;
 
-use CodeAnalyzer\Common\Mapper\MapperException;
-use CodeAnalyzer\Common\Util\GlobalConfig;
-use CodeAnalyzer\Common\ValueObject\IdVo;
-use CodeAnalyzer\Component\Attribute\Mapper;
-use CodeAnalyzer\Component\Mapper\AbstractMapper;
-use CodeAnalyzer\Component\Mapper\MapperInterface;
-use CodeAnalyzer\Context\User\Application\Dto\UserDto;
-use CodeAnalyzer\Context\User\Domain\Entity\User;
-use CodeAnalyzer\Context\User\Domain\Entity\UserStatus;
+use App\Common\Mapper\MapperException;
+use App\Common\Util\GlobalConfig;
+use App\Common\ValueObject\IdVo;
+use App\Component\Attribute\Mapper;
+use App\Component\Mapper\AbstractMapper;
+use App\Component\Mapper\MapperInterface;
+use App\Context\User\Application\Dto\UserDto;
+use App\Context\User\Domain\Entity\User;
+use App\Context\User\Domain\Entity\UserStatus;
 use DateTime;
 use Throwable;
 
@@ -27,15 +27,15 @@ final class UserMapper extends AbstractMapper
     {
         try {
             $entity = new User(
-                id:        new IdVo($dto->id),
-                username:  $dto->username,
-                email:     $dto->email,
-                password:  $dto->password,
-                status:    UserStatus::fromName($dto->status),
+                id       : new IdVo($dto->id),
+                username : $dto->username,
+                email    : $dto->email,
+                password : $dto->password,
+                status   : UserStatus::fromName($dto->status),
                 createdAt: new DateTime($dto->createdAt),
             );
         } catch (Throwable $e) {
-            throw new MapperException("Error mapping UserDto -> User");
+            throw new MapperException('Error mapping UserDto -> User');
         }
 
         return $entity;
@@ -48,15 +48,15 @@ final class UserMapper extends AbstractMapper
     {
         try {
             $dto = new UserDto(
-                id:        $entity->getId()->getValue(),
-                username:  $entity->getUsername(),
-                email:     $entity->getEmail(),
-                password:  $entity->getPassword(),
-                status:    $entity->getStatus()->value,
+                id       : $entity->getId()->getValue(),
+                username : $entity->getUsername(),
+                email    : $entity->getEmail(),
+                password : $entity->getPassword(),
+                status   : $entity->getStatus()->value,
                 createdAt: $entity->getCreatedAt()->format(GlobalConfig::DATE_FORMAT_DEFAULT),
             );
         } catch (Throwable $e) {
-            throw new MapperException("Error mapping User -> UserDto");
+            throw new MapperException('Error mapping User -> UserDto');
         }
 
         return $dto;

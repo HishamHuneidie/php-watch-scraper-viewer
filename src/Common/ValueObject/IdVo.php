@@ -1,26 +1,24 @@
 <?php
 
-namespace CodeAnalyzer\Common\ValueObject;
+namespace App\Common\ValueObject;
 
-use CodeAnalyzer\Common\Util\GetterSetterTrait;
-use CodeAnalyzer\Common\Util\UuidService;
+use App\Common\Util\UuidService;
 
 /**
  * ID with a UUID format. This has 32 characters separated in 5 groups (8–4–4–4–12)
  *
  * @method string getValue()
- * @extends AbstractValueObject<IdVo>
+ * @extends AbstractValueObject<string, IdVo>
  */
 class IdVo extends AbstractValueObject
 {
-    use GetterSetterTrait;
-
     /**
      * @param string $value
+     *
      * @throws ValueObjectException
      */
     public function __construct(
-        private readonly string $value,
+        public readonly string $value,
     )
     {
         $this->validations();
@@ -45,5 +43,18 @@ class IdVo extends AbstractValueObject
             throw new ValueObjectException('ID is a non-valid ID');
         }
 
+    }
+
+    /**
+     * Create a new instance of a value object
+     *
+     * @param string $value
+     *
+     * @return ValueObjectInterface
+     * @throws ValueObjectException
+     */
+    public static function create(string $value): object
+    {
+        return new self($value);
     }
 }

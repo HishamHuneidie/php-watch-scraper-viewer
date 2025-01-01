@@ -1,8 +1,8 @@
 <?php
 
-namespace CodeAnalyzer;
+namespace App;
 
-use CodeAnalyzer\Component\Symfony\CompilerPass\AutoMapperPass;
+use App\Component\Symfony\CompilerPass\AutoMapperPass;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
@@ -13,6 +13,7 @@ class Kernel extends BaseKernel
 
     /**
      * @param ContainerBuilder $container
+     *
      * @return void
      */
     protected function build(ContainerBuilder $container): void

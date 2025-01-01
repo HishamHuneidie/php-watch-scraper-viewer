@@ -1,8 +1,8 @@
 <?php
 
-namespace CodeAnalyzer\Common\Repository;
+namespace App\Common\Repository;
 
-use CodeAnalyzer\Common\Exception\CommonException;
+use App\Common\Exception\CommonException;
 
 class RepositoryException extends CommonException
 {

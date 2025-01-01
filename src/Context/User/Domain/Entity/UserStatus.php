@@ -1,8 +1,8 @@
 <?php
 
-namespace CodeAnalyzer\Context\User\Domain\Entity;
+namespace App\Context\User\Domain\Entity;
 
-use CodeAnalyzer\Common\Util\EnumTrait;
+use App\Common\Util\EnumTrait;
 
 enum UserStatus: string
 {

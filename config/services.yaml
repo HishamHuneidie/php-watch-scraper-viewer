@@ -9,8 +9,7 @@ services:
     autowire: true
     autoconfigure: true
 
-
-  CodeAnalyzer\:
+  App\:
     resource: '../src/'
     exclude:
       - '../src/DependencyInjection/'
@@ -21,3 +20,12 @@ services:
       - '../src/Context/*/Application/Dto/'
       - '../src/Component/'
       - '../src/Common/'
+
+  Symfony\Component\BrowserKit\HttpBrowser:
+    arguments:
+      $client: '@http_client'
+
+  App\Common\Repository\AbstractScrapRepository:
+    abstract: true
+    arguments:
+      - '@Symfony\Component\BrowserKit\HttpBrowser'

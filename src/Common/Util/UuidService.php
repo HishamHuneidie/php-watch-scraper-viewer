@@ -1,9 +1,9 @@
 <?php
 
-namespace CodeAnalyzer\Common\Util;
+namespace App\Common\Util;
 
-use CodeAnalyzer\Common\ValueObject\IdVo;
-use CodeAnalyzer\Common\ValueObject\ValueObjectException;
+use App\Common\ValueObject\IdVo;
+use App\Common\ValueObject\ValueObjectException;
 use Ramsey\Uuid\Uuid;
 
 class UuidService
@@ -24,6 +24,7 @@ class UuidService
      * Check if ID is valid
      *
      * @param IdVo $id
+     *
      * @return bool
      */
     public static function isValid(IdVo $id): bool

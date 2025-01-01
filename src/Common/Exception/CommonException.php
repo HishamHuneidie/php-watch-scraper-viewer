@@ -1,6 +1,6 @@
 <?php
 
-namespace CodeAnalyzer\Common\Exception;
+namespace App\Common\Exception;
 
 use Exception;
 use Throwable;
@@ -8,8 +8,8 @@ use Throwable;
 class CommonException extends Exception
 {
     /**
-     * @param string $message
-     * @param Error[] $errors
+     * @param string         $message
+     * @param Error[]        $errors
      * @param Throwable|null $previous
      */
     public function __construct(

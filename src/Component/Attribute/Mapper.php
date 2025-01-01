@@ -1,6 +1,6 @@
 <?php
 
-namespace CodeAnalyzer\Component\Attribute;
+namespace App\Component\Attribute;
 
 use Attribute;
 

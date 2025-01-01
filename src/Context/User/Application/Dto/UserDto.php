@@ -1,6 +1,6 @@
 <?php
 
-namespace CodeAnalyzer\Context\User\Application\Dto;
+namespace App\Context\User\Application\Dto;
 
 /**
  * Dto User. Used in presentation and application layers

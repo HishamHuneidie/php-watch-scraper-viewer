@@ -1,23 +1,10 @@
 <?php
 
-namespace CodeAnalyzer\Common\ValueObject;
+namespace App\Common\ValueObject;
 
-/**
- * @psalm-template TValueObject
- */
+use App\Common\Util\GetterSetterTrait;
+
 abstract class AbstractValueObject implements ValueObjectInterface
 {
-    /**
-     * Create a new instance of a value object
-     *
-     * @param mixed $value
-     * @psalm-return TValueObject
-     * @throws ValueObjectException
-     */
-    public static function new(mixed $value): object
-    {
-        $className = get_called_class();
-        return new $className($value);
-    }
-
+    use GetterSetterTrait;
 }

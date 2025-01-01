@@ -1,6 +1,6 @@
 <?php
 
-namespace CodeAnalyzer\Common\Util;
+namespace App\Common\Util;
 
 class GlobalConfig
 {

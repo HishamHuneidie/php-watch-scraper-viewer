@@ -1,5 +1,5 @@
 -- Select database
-USE code-analyzer-db;
+USE php-viewer-db;
 
 -- Create tables
 

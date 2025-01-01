@@ -1,12 +1,12 @@
 <?php
 
-namespace CodeAnalyzer\Context\User\Infrastructure\Persistence\Repository;
+namespace App\Context\User\Infrastructure\Persistence\Repository;
 
-use CodeAnalyzer\Common\Util\UuidService;
-use CodeAnalyzer\Common\ValueObject\IdVo;
-use CodeAnalyzer\Context\User\Domain\Entity\User;
-use CodeAnalyzer\Context\User\Domain\Entity\UserStatus;
-use CodeAnalyzer\Context\User\Domain\Repository\UserRepositoryInterface;
+use App\Common\Util\UuidService;
+use App\Common\ValueObject\IdVo;
+use App\Context\User\Domain\Entity\User;
+use App\Context\User\Domain\Entity\UserStatus;
+use App\Context\User\Domain\Repository\UserRepositoryInterface;
 use DateTime;
 
 class UserRepository implements UserRepositoryInterface
@@ -18,11 +18,11 @@ class UserRepository implements UserRepositoryInterface
     public function find(): array
     {
         $user = new User(
-            id:        UuidService::generate(),
-            username:  'hish.nuevo',
-            email:     'hisham@nuevo.com',
-            password:  '123',
-            status:    UserStatus::ACTIVE,
+            id       : UuidService::generate(),
+            username : 'hish.nuevo',
+            email    : 'hisham@nuevo.com',
+            password : '123',
+            status   : UserStatus::ACTIVE,
             createdAt: new DateTime(),
         );
 
@@ -35,11 +35,11 @@ class UserRepository implements UserRepositoryInterface
     public function findById(IdVo $id): User
     {
         return new User(
-            id:        UuidService::generate(),
-            username:  'hish.nuevo',
-            email:     'hisham@nuevo.com',
-            password:  '123',
-            status:    UserStatus::ACTIVE,
+            id       : UuidService::generate(),
+            username : 'hish.nuevo',
+            email    : 'hisham@nuevo.com',
+            password : '123',
+            status   : UserStatus::ACTIVE,
             createdAt: new DateTime(),
         );
     }

@@ -6,7 +6,7 @@ services:
     volumes:
       - ./:/var/www/html
     networks:
-      - code-analyzer-net
+      - php-viewer-net
   web_server:
     build: ${DOCKER_DIR}/web_server
     depends_on:
@@ -16,13 +16,13 @@ services:
     volumes:
       - ./:/var/www/html:cached
     networks:
-      - code-analyzer-net
+      - php-viewer-net
   db:
     image: mariadb:11.6.2
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 123
-      MYSQL_DATABASE: code-analyzer-db
+      MYSQL_DATABASE: php-viewer-db
       MYSQL_USER: db_user
       MYSQL_PASSWORD: 123
     volumes:
@@ -31,10 +31,10 @@ services:
     ports:
       - "3306:3306"
     networks:
-      - code-analyzer-net
+      - php-viewer-net
 
 networks:
-  code-analyzer-net:
+  php-viewer-net:
     driver: bridge
 
 volumes:

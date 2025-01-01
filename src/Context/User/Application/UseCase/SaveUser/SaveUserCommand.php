@@ -1,8 +1,8 @@
 <?php
 
-namespace CodeAnalyzer\Context\User\Application\UseCase\SaveUser;
+namespace App\Context\User\Application\UseCase\SaveUser;
 
-use CodeAnalyzer\Context\User\Application\Dto\UserDto;
+use App\Context\User\Application\Dto\UserDto;
 
 /**
  * RequestCommand used to save a user

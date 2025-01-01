@@ -1,8 +1,8 @@
 <?php
 
-namespace CodeAnalyzer\Component\Mapper;
+namespace App\Component\Mapper;
 
-use CodeAnalyzer\Common\Mapper\MapperException;
+use App\Common\Mapper\MapperException;
 
 /**
  * Contract for objects that map Dto and entities

@@ -1,8 +1,8 @@
 <?php
 
-namespace CodeAnalyzer\Common\ValueObject;
+namespace App\Common\ValueObject;
 
-use CodeAnalyzer\Common\Exception\CommonException;
+use App\Common\Exception\CommonException;
 
 class ValueObjectException extends CommonException
 {

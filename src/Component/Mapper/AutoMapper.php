@@ -1,8 +1,11 @@
 <?php
 
-namespace CodeAnalyzer\Component\Mapper;
+namespace App\Component\Mapper;
 
-use CodeAnalyzer\Component\Attribute\Mapper;
+use App\Common\Mapper\MapperException;
+use App\Component\Attribute\Mapper;
+use ReflectionClass;
+use ReflectionException;
 
 #[Mapper('*', '*')]
 final class AutoMapper extends AbstractMapper

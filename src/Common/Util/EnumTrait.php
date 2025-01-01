@@ -1,8 +1,8 @@
 <?php
 
-namespace CodeAnalyzer\Common\Util;
+namespace App\Common\Util;
 
-use CodeAnalyzer\Common\Exception\CommonException;
+use App\Common\Exception\CommonException;
 
 trait EnumTrait
 {

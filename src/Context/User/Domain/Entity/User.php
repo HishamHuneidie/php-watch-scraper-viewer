@@ -1,9 +1,9 @@
 <?php
 
-namespace CodeAnalyzer\Context\User\Domain\Entity;
+namespace App\Context\User\Domain\Entity;
 
-use CodeAnalyzer\Common\Util\GetterSetterTrait;
-use CodeAnalyzer\Common\ValueObject\IdVo;
+use App\Common\Util\GetterSetterTrait;
+use App\Common\ValueObject\IdVo;
 use DateTime;
 
 /**

@@ -1,12 +1,11 @@
 <?php
 
-namespace CodeAnalyzer\Common\Util;
+namespace App\Common\Util;
 
 use BadMethodCallException;
 
 trait GetterSetterTrait
 {
-
     public function __call(string $method, array $arguments)
     {
         $prefixCount = str_starts_with($method, 'is') ? 2 : 3;

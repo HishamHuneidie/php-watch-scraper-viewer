@@ -5,9 +5,9 @@
 DOCKER_COMPOSE = docker compose
 DOCKER_MAIN_CONTAINER = app
 DOCKER_DB_CONTAINER = db
-DOCKER_PREFIX = code-analyzer
+DOCKER_PREFIX = php-wiewer
 DB_USER = db_user
-DB_NAME = code-analyzer-db
+DB_NAME = php-wiewer-db
 DB_PASS = 123
 
 # Show a small explanation of this Makefile and its commands
@@ -54,8 +54,8 @@ db-bash:
 	${DOCKER_COMPOSE} -p ${DOCKER_PREFIX} exec ${DOCKER_DB_CONTAINER} mariadb -u ${DB_USER} -D ${DB_NAME} -p
 
 # Clean cache
-.PHONY: composer-clean
-composer-clean:
+.PHONY: composer-clear
+composer-clear:
 	${DOCKER_COMPOSE} -p ${DOCKER_PREFIX} exec ${DOCKER_MAIN_CONTAINER} php bin/console cache:clear
 
 # Install a vendor package

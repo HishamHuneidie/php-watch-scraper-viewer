@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use CodeAnalyzer\Component\Mapper\GenericMapper;
-use CodeAnalyzer\Component\Mapper\MapperInterface;
+use App\Component\Mapper\GenericMapper;
+use App\Component\Mapper\MapperInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use function Symfony\Component\DependencyInjection\Loader\Configurator\service;
@@ -14,7 +14,7 @@ return static function (ContainerConfigurator $container): void {
     $services
         ->set(MapperInterface::class, GenericMapper::class)
         ->args([
-           service(LoggerInterface::class),
-           service('debug.stopwatch'),
-       ]);
+            service(LoggerInterface::class),
+            service('debug.stopwatch'),
+        ]);
 };

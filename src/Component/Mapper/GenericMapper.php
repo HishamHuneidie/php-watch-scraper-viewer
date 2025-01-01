@@ -1,8 +1,8 @@
 <?php
 
-namespace CodeAnalyzer\Component\Mapper;
+namespace App\Component\Mapper;
 
-use CodeAnalyzer\Common\Mapper\MapperException;
+use App\Common\Mapper\MapperException;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Stopwatch\Stopwatch;
 
@@ -90,6 +90,7 @@ class GenericMapper implements MapperInterface
      * Resolve specific mapper
      *
      * @param object $object
+     *
      * @return MapperInterface
      * @throws MapperException
      */
@@ -113,8 +114,9 @@ class GenericMapper implements MapperInterface
      * Add a mapper for a specific Dto or Entity
      * This method is called by one CompilerPass
      *
-     * @param string $objectClass
+     * @param string          $objectClass
      * @param MapperInterface $mapper
+     *
      * @return $this
      */
     public function addMapper(string $objectClass, MapperInterface $mapper): self

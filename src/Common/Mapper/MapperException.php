@@ -1,8 +1,8 @@
 <?php
 
-namespace CodeAnalyzer\Common\Mapper;
+namespace App\Common\Mapper;
 
-use CodeAnalyzer\Common\Exception\CommonException;
+use App\Common\Exception\CommonException;
 
 class MapperException extends CommonException
 {

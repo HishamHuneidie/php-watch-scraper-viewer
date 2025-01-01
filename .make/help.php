@@ -11,7 +11,7 @@ $allowedCommands = [
     "logs             " => "Show logs",
     "bash             " => "Access to the main container terminal",
     "db-bash          " => "Access to the database container terminal",
-    "composer-clean   " => "Clean cache",
+    "composer-clear   " => "Clean cache",
     "composer-add     " => "Install a vendor package (eg: %purple%make composer-add vendor=my-package%fin%)",
     "tree             " => "Update/Generate directory tree",
 ];

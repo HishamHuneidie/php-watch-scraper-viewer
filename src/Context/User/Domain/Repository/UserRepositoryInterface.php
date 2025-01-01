@@ -1,10 +1,10 @@
 <?php
 
-namespace CodeAnalyzer\Context\User\Domain\Repository;
+namespace App\Context\User\Domain\Repository;
 
-use CodeAnalyzer\Common\Repository\RepositoryException;
-use CodeAnalyzer\Common\ValueObject\IdVo;
-use CodeAnalyzer\Context\User\Domain\Entity\User;
+use App\Common\Repository\RepositoryException;
+use App\Common\ValueObject\IdVo;
+use App\Context\User\Domain\Entity\User;
 
 /**
  * Manage user
@@ -24,6 +24,7 @@ interface UserRepositoryInterface
      * Search a user by ID
      *
      * @param IdVo $id
+     *
      * @return User
      * @throws RepositoryException
      */
@@ -33,6 +34,7 @@ interface UserRepositoryInterface
      * Save or update user
      *
      * @param User $user
+     *
      * @return void
      * @throws RepositoryException
      */
