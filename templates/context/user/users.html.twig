@@ -1,11 +1,25 @@
-{% extends 'layout/base.html.twig' %}
+{% extends 'context/user/layout/base_user.html.twig' %}
 
 {% block body %}
-    {% for user in users %}
-        <p>
-            <span>{{ user.username }}</span>
-            <span>{{ user.email }}</span>
-        </p>
-        <hr/>
-    {% endfor %}
+    <section class="section">
+        <div class="container">
+            <h1>Users</h1>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            {% for user in users %}
+                <user-item
+                        data-id="{{ user.id }}"
+                        data-username="{{ user.username }}"
+                        data-email="{{ user.email }}"
+                        data-status="{{ user.status }}"
+                >
+                    {{ user.username }}
+                </user-item>
+                <hr/>
+            {% endfor %}
+        </div>
+    </section>
 {% endblock %}

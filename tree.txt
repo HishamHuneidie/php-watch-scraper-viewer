@@ -77,17 +77,17 @@
 |   |       |-- Api
 |   |       |-- Application
 |   |       |   |-- Dto
-|   |       |   |   |-- LinkVoDto.php
+|   |       |   |   |-- EscapedPathnameVoDto.php
 |   |       |   |   `-- RfcDto.php
 |   |       |   |-- Mapper
-|   |       |   |   |-- LinkVoMapper.php
+|   |       |   |   |-- PathnameVoMapper.php
 |   |       |   |   `-- RfcMapper.php
 |   |       |   `-- UseCase
-|   |       |       |-- RfcByLink
+|   |       |       |-- RfcByPathname
 |   |       |       `-- RfcList
 |   |       |-- Domain
 |   |       |   |-- Entity
-|   |       |   |   |-- LinkVo.php
+|   |       |   |   |-- PathnameVo.php
 |   |       |   |   `-- Rfc.php
 |   |       |   `-- Repository
 |   |       |       `-- RfcRepositoryInterface.php
@@ -99,13 +99,24 @@
 |   `-- Kernel.php
 |-- templates
 |   |-- context
-|   |   `-- user
-|   |       |-- user.html.twig
-|   |       `-- users.html.twig
+|   |   |-- user
+|   |   |   |-- layout
+|   |   |   |   |-- _partials
+|   |   |   |   |   `-- menu.html.twig
+|   |   |   |   `-- base_user.html.twig
+|   |   |   |-- user.html.twig
+|   |   |   `-- users.html.twig
+|   |   `-- watch
+|   |       |-- layout
+|   |       |   |-- _partials
+|   |       |   |   `-- menu.html.twig
+|   |       |   `-- base_watch.html.twig
+|   |       |-- rfc.html.twig
+|   |       `-- rfcs.html.twig
 |   `-- layout
 |       |-- _partials
 |       |   `-- menu.html.twig
 |       `-- base.html.twig
 `-- tree.txt
 
-53 directories, 55 files
+58 directories, 61 files

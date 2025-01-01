@@ -7,12 +7,12 @@ use App\Common\ValueObject\ValueObjectException;
 use App\Common\ValueObject\ValueObjectInterface;
 
 /**
- * LinkId that escapes the slashes
+ * Pathname that escapes the slashes
  *
  * @method string getValue()
- * @extends AbstractValueObject<string, LinkVoDto>
+ * @extends AbstractValueObject<string, EscapedPathnameVoDto>
  */
-final class LinkVoDto extends AbstractValueObject
+final class EscapedPathnameVoDto extends AbstractValueObject
 {
     /**
      * @param string $value
@@ -28,7 +28,7 @@ final class LinkVoDto extends AbstractValueObject
 
     public function equals(ValueObjectInterface $object): bool
     {
-        return $object instanceof LinkVoDto
+        return $object instanceof EscapedPathnameVoDto
             && $this->value === $object->getValue();
     }
 
@@ -41,7 +41,7 @@ final class LinkVoDto extends AbstractValueObject
     private function validations(): void
     {
         if (str_contains($this->value, "/")) {
-            throw new ValueObjectException('This link cannot have slashes (/)');
+            throw new ValueObjectException('This pathname cannot have slashes (/)');
         }
     }
 
@@ -56,6 +56,11 @@ final class LinkVoDto extends AbstractValueObject
     public static function create(string $value): object
     {
         return new self($value);
+    }
+
+    public function __toString(): string
+    {
+        return $this->value;
     }
 
 }

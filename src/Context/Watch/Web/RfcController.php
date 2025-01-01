@@ -3,8 +3,8 @@
 namespace App\Context\Watch\Web;
 
 use App\Common\Exception\CommonException;
-use App\Context\Watch\Application\Dto\LinkVoDto;
-use App\Context\Watch\Application\UseCase\RfcByLink\RfcByLink;
+use App\Context\Watch\Application\Dto\EscapedPathnameVoDto;
+use App\Context\Watch\Application\UseCase\RfcByPathname\RfcByPathname;
 use App\Context\Watch\Application\UseCase\RfcList\RfcList;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,23 +22,22 @@ final class RfcController extends AbstractController
             return $this->json(['errors']);
         }
 
-        return $this->json(
-            [
-                'rfcs' => $rfcs,
-            ]);
+        return $this->render('context/watch/rfcs.html.twig', [
+            'rfcs' => $rfcs,
+        ]);
     }
 
-    #[Route('/{link}', name: 'findByLink', methods: ['GET'])]
-    public function get(string $link, RfcByLink $rfcByLink): Response
+    #[Route('/{pathname}', name: 'findByPathname', methods: ['GET'])]
+    public function get(string $pathname, RfcByPathname $rfcByPathname): Response
     {
         try {
-            $linkVoDto = LinkVoDto::create($link);
-            $rfc = $rfcByLink->execute($linkVoDto);
+            $pathnameVoDto = EscapedPathnameVoDto::create($pathname);
+            $rfc = $rfcByPathname->execute($pathnameVoDto);
         } catch (CommonException $e) {
             return $this->json(['errors']);
         }
 
-        return $this->json([
+        return $this->render('context/watch/rfc.html.twig', [
             'rfc' => $rfc,
         ]);
     }

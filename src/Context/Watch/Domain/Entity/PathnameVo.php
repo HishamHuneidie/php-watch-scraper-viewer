@@ -7,12 +7,12 @@ use App\Common\ValueObject\ValueObjectException;
 use App\Common\ValueObject\ValueObjectInterface;
 
 /**
- * LinkId that could have slashes
+ * Pathname that could have slashes
  *
  * @method string getValue()
- * @extends AbstractValueObject<string, LinkVo>
+ * @extends AbstractValueObject<string, PathnameVo>
  */
-final class LinkVo extends AbstractValueObject
+final class PathnameVo extends AbstractValueObject
 {
     public function __construct(
         public readonly string $value,
@@ -23,7 +23,7 @@ final class LinkVo extends AbstractValueObject
 
     public function equals(ValueObjectInterface $object): bool
     {
-        return $object instanceof LinkVo
+        return $object instanceof PathnameVo
             && $this->value === $object->getValue();
     }
 
@@ -45,6 +45,11 @@ final class LinkVo extends AbstractValueObject
     public static function create(string $value): object
     {
         return new self($value);
+    }
+
+    public function __toString(): string
+    {
+        return $this->value;
     }
 
 }

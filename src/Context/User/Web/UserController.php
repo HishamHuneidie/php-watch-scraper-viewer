@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\MapRequestPayload;
 use Symfony\Component\Routing\Attribute\Route;
 
-#[Route(name: 'user.')]
+#[Route('/users', name: 'user.')]
 final class UserController extends AbstractController
 {
     #[Route('/', name: 'findAll', methods: ['GET'])]

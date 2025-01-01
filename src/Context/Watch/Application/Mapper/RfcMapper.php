@@ -23,13 +23,12 @@ final class RfcMapper extends AbstractMapper
     {
         try {
             $entity = new Rfc(
-                link   : $this->mapper->toEntity($dto->link),
-                title  : $dto->title,
-                type   : $dto->type,
-                version: $dto->version,
-                status : $dto->status,
-                content: $dto->content,
-                phpLink: $this->mapper->toEntity($dto->phpLink),
+                pathname: $this->mapper->toEntity($dto->pathname),
+                title   : $dto->title,
+                type    : $dto->type,
+                version : $dto->version,
+                status  : $dto->status,
+                phpLink : $dto->phpLink,
             );
         } catch (Throwable $e) {
             throw new MapperException('Error mapping RfcDto -> Rfc');
@@ -45,13 +44,12 @@ final class RfcMapper extends AbstractMapper
     {
         try {
             $dto = new RfcDto(
-                link   : $this->mapper->fromEntity($entity->getLink()),
-                title  : $entity->getTitle(),
-                type   : $entity->getType(),
-                version: $entity->getVersion(),
-                status : $entity->getStatus(),
-                content: $entity->getContent(),
-                phpLink: $this->mapper->fromEntity($entity->getPhpLink()),
+                pathname: $this->mapper->fromEntity($entity->getPathname()),
+                title   : $entity->getTitle(),
+                type    : $entity->getType(),
+                version : $entity->getVersion(),
+                status  : $entity->getStatus(),
+                phpLink : $entity->getPhpLink(),
             );
         } catch (Throwable $e) {
             throw new MapperException('Error mapping Rfc -> RfcDto');

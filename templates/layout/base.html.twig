@@ -6,14 +6,22 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {% block title %}<title>App</title>{% endblock %}
+
+    {# Styles #}
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+
+    {% block css %}{% endblock %}
     {% block js %}{% endblock %}
 </head>
 <body>
 <div class="app-container">
-    <div class="menu">
-        {% include 'layout/_partials/menu.html.twig' %}
+    <div class="app-header"></div>
+    <div class="app-menu">
+        {% block menu %}
+            {% include 'layout/_partials/menu.html.twig' %}
+        {% endblock %}
     </div>
-    <div class="body-container">
+    <div class="app-body">
         {% block body %}{% endblock %}
     </div>
 </div>

@@ -3,7 +3,7 @@
 namespace App\Context\Watch\Infrastructure\Persistence\Repository;
 
 use App\Common\Repository\AbstractScrapRepository;
-use App\Context\Watch\Domain\Entity\LinkVo;
+use App\Context\Watch\Domain\Entity\PathnameVo;
 use App\Context\Watch\Domain\Entity\Rfc;
 use App\Context\Watch\Domain\Repository\RfcRepositoryInterface;
 use Symfony\Component\DomCrawler\Crawler;
@@ -23,7 +23,7 @@ class RfcRepository extends AbstractScrapRepository implements RfcRepositoryInte
         $articles = $crawler->filter('main article .content.rfc .rfc-info');
         $articles->each(function (Crawler $article) use (&$rfcList) {
             $titleNode = $article->filter('.title a');
-            $link = $titleNode->attr('href');
+            $pathname = $titleNode->attr('href');
             $title = trim($titleNode->text());
 
             $type = trim($article->filter('[class*="tag--change-type--"] .tag:nth-child(2)')->text());
@@ -42,11 +42,11 @@ class RfcRepository extends AbstractScrapRepository implements RfcRepositoryInte
             };
 
             $rfcList[] = new Rfc(
-                link   : LinkVo::create($link),
-                title  : $title,
-                type   : $type,
-                version: $version,
-                status : $status,
+                pathname: PathnameVo::create($pathname),
+                title   : $title,
+                type    : $type,
+                version : $version,
+                status  : $status,
             );
         });
 
@@ -56,9 +56,9 @@ class RfcRepository extends AbstractScrapRepository implements RfcRepositoryInte
     /**
      * @inheritDoc
      */
-    public function findByLink(LinkVo $linkVo): Rfc
+    public function findByPathname(PathnameVo $pathnameVo): Rfc
     {
-        $crawler = $this->fetch($linkVo->getValue());
+        $crawler = $this->fetch($pathnameVo->getValue());
 
         $rows = $crawler->filter('.rfc-info tr');
 
@@ -66,17 +66,15 @@ class RfcRepository extends AbstractScrapRepository implements RfcRepositoryInte
         $type = $this->searchCellContent($rows, 'type');
         $version = $this->searchCellContent($rows, 'version');
         $status = $this->searchCellContent($rows, 'status');
-        $content = '';
         $phpLink = $this->searchPhpLink($rows);
 
         return new Rfc(
-            link   : $linkVo,
-            title  : $title,
-            type   : $type,
-            version: $version,
-            status : $status,
-            content: $content,
-            phpLink: LinkVo::create($phpLink),
+            pathname: $pathnameVo,
+            title   : $title,
+            type    : $type,
+            version : $version,
+            status  : $status,
+            phpLink : $phpLink,
         );
     }
 

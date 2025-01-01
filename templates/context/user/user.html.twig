@@ -1,8 +1,22 @@
-{% extends 'layout/base.html.twig' %}
+{% extends 'context/user/layout/base_user.html.twig' %}
 
 {% block body %}
-    <p>
-        <span>{{ user.username }}</span>
-        <span>{{ user.email }}</span>
-    </p>
+    <section class="section">
+        <div class="container">
+            <h1>Profile</h1>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <user-card
+                    data-id="{{ user.id }}"
+                    data-username="{{ user.username }}"
+                    data-email="{{ user.email }}"
+                    data-status="{{ user.status }}"
+            >
+                {{ user.username }}
+            </user-card>
+        </div>
+    </section>
 {% endblock %}
