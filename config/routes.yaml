@@ -10,5 +10,20 @@ user_api_controllers:
 user_web_controllers:
   resource:
     path: '../src/Context/User/Web'
-    namespace: CodeAnalyzer\Context\User\Web
+    namespace: App\Context\User\Web
+  type: attribute
+
+# RFCs context
+
+rfc_api_controllers:
+  resource:
+    path: '../src/Context/Watch/Api'
+    namespace: App\Context\Watch\Api
+  type: attribute
+  prefix: /public/v1
+
+rfc_web_controllers:
+  resource:
+    path: '../src/Context/Watch/Web'
+    namespace: App\Context\Watch\Web
   type: attribute

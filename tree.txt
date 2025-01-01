@@ -48,27 +48,47 @@
 |   |       `-- CompilerPass
 |   |           `-- AutoMapperPass.php
 |   |-- Context
-|   |   `-- User
+|   |   |-- User
+|   |   |   |-- Api
+|   |   |   |-- Application
+|   |   |   |   |-- Dto
+|   |   |   |   |   `-- UserDto.php
+|   |   |   |   |-- Mapper
+|   |   |   |   |   `-- UserMapper.php
+|   |   |   |   `-- UseCase
+|   |   |   |       |-- SaveUser
+|   |   |   |       |-- UserById
+|   |   |   |       `-- UserList
+|   |   |   |-- Domain
+|   |   |   |   |-- Entity
+|   |   |   |   |   |-- User.php
+|   |   |   |   |   `-- UserStatus.php
+|   |   |   |   `-- Repository
+|   |   |   |       `-- UserRepositoryInterface.php
+|   |   |   |-- Infrastructure
+|   |   |   |   `-- Persistence
+|   |   |   |       `-- Repository
+|   |   |   `-- Web
+|   |   |       `-- UserController.php
+|   |   `-- Watch
+|   |       |-- Api
 |   |       |-- Application
 |   |       |   |-- Dto
-|   |       |   |   `-- UserDto.php
+|   |       |   |   `-- RfcDto.php
 |   |       |   |-- Mapper
-|   |       |   |   `-- UserMapper.php
+|   |       |   |   `-- RfcMapper.php
 |   |       |   `-- UseCase
-|   |       |       |-- SaveUser
-|   |       |       |-- UserById
-|   |       |       `-- UserList
+|   |       |       `-- RfcList.php
 |   |       |-- Domain
 |   |       |   |-- Entity
-|   |       |   |   |-- User.php
-|   |       |   |   `-- UserStatus.php
+|   |       |   |   `-- Rfc.php
 |   |       |   `-- Repository
-|   |       |       `-- UserRepositoryInterface.php
+|   |       |       `-- RfcRepositoryInterface.php
 |   |       |-- Infrastructure
 |   |       |   `-- Persistence
 |   |       |       `-- Repository
 |   |       `-- Web
-|   |           `-- UserController.php
+|   |           `-- RfcController.php
 |   `-- Kernel.php
 |-- templates
 |   |-- context
@@ -81,4 +101,4 @@
 |       `-- base.html.twig
 `-- tree.txt
 
-36 directories, 45 files
+50 directories, 51 files

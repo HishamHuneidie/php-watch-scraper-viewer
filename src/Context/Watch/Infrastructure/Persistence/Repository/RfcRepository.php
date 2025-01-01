@@ -1,0 +1,117 @@
+<?php
+
+namespace App\Context\Watch\Infrastructure\Persistence\Repository;
+
+use App\Common\Repository\AbstractScrapRepository;
+use App\Context\Watch\Domain\Entity\LinkVo;
+use App\Context\Watch\Domain\Entity\Rfc;
+use App\Context\Watch\Domain\Repository\RfcRepositoryInterface;
+use Symfony\Component\DomCrawler\Crawler;
+
+class RfcRepository extends AbstractScrapRepository implements RfcRepositoryInterface
+{
+
+    /**
+     * @inheritDoc
+     */
+    public function find(): array
+    {
+        $crawler = $this->fetch('rfcs');
+
+        $rfcList = [];
+
+        $articles = $crawler->filter('main article .content.rfc .rfc-info');
+        $articles->each(function (Crawler $article) use (&$rfcList) {
+            $titleNode = $article->filter('.title a');
+            $link = $titleNode->attr('href');
+            $title = trim($titleNode->text());
+
+            $type = trim($article->filter('[class*="tag--change-type--"] .tag:nth-child(2)')->text());
+
+            $versions = $article->filter('.tag--version .tag');
+            $version = match ($versions->count()) {
+                2       => trim($versions->eq(1)->text()),
+                default => '',
+            };
+
+            $statuses = $article->filter('.rfc-status');
+            $status = match ($statuses->count()) {
+                0       => '',
+                1       => trim($statuses->text()),
+                default => trim($statuses->eq(0)->text()) . ' [' . trim($statuses->eq(1)->text()) . ']',
+            };
+
+            $rfcList[] = new Rfc(
+                link   : LinkVo::create($link),
+                title  : $title,
+                type   : $type,
+                version: $version,
+                status : $status,
+            );
+        });
+
+        return $rfcList;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function findByLink(LinkVo $linkVo): Rfc
+    {
+        $crawler = $this->fetch($linkVo->getValue());
+
+        $rows = $crawler->filter('.rfc-info tr');
+
+        $title = $this->searchCellContent($rows, 'title');
+        $type = $this->searchCellContent($rows, 'type');
+        $version = $this->searchCellContent($rows, 'version');
+        $status = $this->searchCellContent($rows, 'status');
+        $content = '';
+        $phpLink = $this->searchPhpLink($rows);
+
+        return new Rfc(
+            link   : $linkVo,
+            title  : $title,
+            type   : $type,
+            version: $version,
+            status : $status,
+            content: $content,
+            phpLink: LinkVo::create($phpLink),
+        );
+    }
+
+    public function searchCellContent(Crawler $rows, string $needle): string
+    {
+        foreach ($rows->getIterator() as $rowDocument) {
+            $row = new Crawler($rowDocument);
+            $cells = $row->filter('td');
+
+            $cell1Content = strtolower($cells->eq(0)->text());
+            $needle = strtolower($needle);
+
+            if (str_contains($cell1Content, $needle)) {
+                return trim($cells->eq(1)->text());
+            }
+        }
+
+        return '';
+    }
+
+    public function searchPhpLink(Crawler $rows): string
+    {
+        foreach ($rows->getIterator() as $rowDocument) {
+            $row = new Crawler($rowDocument);
+            $cells = $row->filter('td');
+
+            $cell1Content = strtolower($cells->eq(0)->text());
+            $needle = 'title';
+
+            if (str_contains($cell1Content, $needle)) {
+                return trim($cells->eq(1)->filter('a')->attr('href'));
+            }
+        }
+
+        return '';
+    }
+
+}
