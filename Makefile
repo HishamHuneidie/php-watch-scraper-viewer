@@ -5,9 +5,9 @@
 DOCKER_COMPOSE = docker compose
 DOCKER_MAIN_CONTAINER = app
 DOCKER_DB_CONTAINER = db
-DOCKER_PREFIX = php-wiewer
+DOCKER_PREFIX = php-viewer
 DB_USER = db_user
-DB_NAME = php-wiewer-db
+DB_NAME = php-viewer-db
 DB_PASS = 123
 TREE_FILE = tree.txt
 
@@ -22,6 +22,8 @@ build:
 	${DOCKER_COMPOSE} -p ${DOCKER_PREFIX} down
 	${DOCKER_COMPOSE} -p ${DOCKER_PREFIX} up -d --build
 	${DOCKER_COMPOSE} -p ${DOCKER_PREFIX} exec ${DOCKER_MAIN_CONTAINER} composer install
+	${DOCKER_COMPOSE} -p ${DOCKER_PREFIX} exec ${DOCKER_MAIN_CONTAINER} npm install
+	${DOCKER_COMPOSE} -p ${DOCKER_PREFIX} exec ${DOCKER_MAIN_CONTAINER} npm run dev
 
 # Start containers
 .PHONY: start
@@ -33,6 +35,11 @@ start:
 .PHONY: restart
 restart:
 	${DOCKER_COMPOSE} -p ${DOCKER_PREFIX} restart
+
+# Stop containers
+.PHONY: stop
+stop:
+	${DOCKER_COMPOSE} -p ${DOCKER_PREFIX} stop
 
 # Remove containers
 .PHONY: remove
@@ -63,6 +70,11 @@ composer-clear:
 .PHONY: composer-add
 composer-add:
 	${DOCKER_COMPOSE} -p ${DOCKER_PREFIX} exec ${DOCKER_MAIN_CONTAINER} composer require ${vendor}
+
+# Install a npm package
+.PHONY: npm-add
+npm-add:
+	${DOCKER_COMPOSE} -p ${DOCKER_PREFIX} exec ${DOCKER_MAIN_CONTAINER} npm i ${package}
 
 # Update/Generate directory tree
 .PHONY: tree

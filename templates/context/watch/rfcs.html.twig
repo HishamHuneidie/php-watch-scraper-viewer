@@ -20,6 +20,10 @@
     {{ _self.renderContainer('Removed', 'rfc-alert', rfcList_rem) }}
 {% endblock %}
 
+{% block js %}
+    {{ encore_entry_script_tags('script/watch/rfc') }}
+{% endblock %}
+
 {% macro renderContainer(title, type, items) %}
     <section class="section">
         <div class="container">

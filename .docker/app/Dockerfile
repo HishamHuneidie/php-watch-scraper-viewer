@@ -47,6 +47,12 @@ RUN echo "zend_extension=xdebug.so" >> /etc/php/8.2/fpm/conf.d/20-xdebug.ini && 
     echo "xdebug.client_host=host.docker.internal" >> /etc/php/8.2/fpm/conf.d/20-xdebug.ini && \
     echo "xdebug.client_port=9003" >> /etc/php/8.2/fpm/conf.d/20-xdebug.ini
 
+# Install NodeJS 20 and NPM 10
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get update -y && apt-get upgrade -y
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+RUN apt-get install -y nodejs
+
 # Create directory for the web
 WORKDIR /var/www/html
 RUN chown -R www-data:www-data /var/www/html && chmod -R 755 /var/www/html

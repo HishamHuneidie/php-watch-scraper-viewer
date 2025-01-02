@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "dev-server": "encore dev-server",
+    "dev": "encore dev",
+    "watch": "encore dev --watch",
+    "build": "encore production --progress"
+  },
+  "author": "Hisham <hhuneidie@gmail.com>",
+  "license": "propietary",
+  "devDependencies": {
+    "@symfony/webpack-encore": "^5.0.1",
+    "sass": "^1.83.0",
+    "sass-loader": "^16.0.1",
+    "ts-loader": "^9.0.0",
+    "typescript": "^5.7.2"
+  }
+}

@@ -2,6 +2,28 @@
 |-- LICENSE
 |-- Makefile
 |-- README.md
+|-- assets
+|   |-- app.scss
+|   |-- app.ts
+|   |-- scripts
+|   |   |-- common
+|   |   |   |-- component
+|   |   |   `-- core
+|   |   `-- context
+|   |       |-- user
+|   |       |   `-- main.user.ts
+|   |       `-- watch
+|   |           |-- domain
+|   |           |   `-- Rfc.ts
+|   |           |-- infrastructure
+|   |           `-- main.rfc.ts
+|   `-- styles
+|       |-- body.css
+|       |-- header.css
+|       |-- main.css
+|       |-- menu.css
+|       |-- rules.css
+|       `-- scrollbar.css
 |-- bin
 |   `-- console
 |-- composer.json
@@ -11,11 +33,14 @@
 |   |-- monolog.yaml
 |   |-- packages
 |   |   |-- framework.yaml
-|   |   `-- twig.yaml
+|   |   |-- twig.yaml
+|   |   `-- webpack_encore.yaml
 |   |-- routes.yaml
 |   |-- services.yaml
 |   `-- services_ddd.yaml
 |-- docker-compose.yaml
+|-- package-lock.json
+|-- package.json
 |-- src
 |   |-- Common
 |   |   |-- Enum
@@ -117,6 +142,8 @@
 |       |-- _partials
 |       |   `-- menu.html.twig
 |       `-- base.html.twig
-`-- tree.txt
+|-- tree.txt
+|-- tsconfig.json
+`-- webpack.config.js
 
-58 directories, 61 files
+69 directories, 77 files
