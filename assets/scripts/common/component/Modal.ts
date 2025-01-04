@@ -143,6 +143,14 @@ class Modal {
     public getButton(action: string): undefined | Element {
         return this.footerButtons.get(action);
     }
+
+    public static open(modal: Element): void {
+        modal.classList.add('show');
+    }
+
+    public static close(modal: Element): void {
+        modal.classList.remove('show');
+    }
 }
 
 export default Modal;

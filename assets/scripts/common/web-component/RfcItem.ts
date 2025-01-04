@@ -1,3 +1,5 @@
+import Modal from "@component/Modal";
+
 class RfcItem extends HTMLElement {
     connectedCallback() {
         const shadow = this.attachShadow({mode: 'open'});
@@ -153,6 +155,12 @@ class RfcItem extends HTMLElement {
             }
         `;
 
+        // --------------- Events ---------------
+        // --------------- Events ---------------
+        // --------------- Events ---------------
+
+        this.setEvents({icon});
+
         // --------------- Append elements ---------------
         // --------------- Append elements ---------------
         // --------------- Append elements ---------------
@@ -161,6 +169,23 @@ class RfcItem extends HTMLElement {
         shadow.appendChild(title);
         shadow.appendChild(icon);
         shadow.appendChild(badges);
+    }
+
+    private setEvents(nodes: { icon }): void {
+        const {icon} = nodes;
+
+        icon.addEventListener('click', (e: Event): void => {
+            const icon: Element = (e.currentTarget as Element);
+            const phpLink: null | string = icon.getAttribute('data-php-link') ?? null;
+            const modalId: string = icon.getAttribute('data-modal-id');
+            const modal: undefined | Element = Modal.modals.get(modalId);
+
+            if (phpLink && modal) {
+                return Modal.open(modal);
+            }
+
+            // TODO: Call ajax
+        });
     }
 }
 
