@@ -8,7 +8,9 @@
 |   |-- scripts
 |   |   |-- common
 |   |   |   |-- component
-|   |   |   `-- core
+|   |   |   |-- core
+|   |   |   `-- web-component
+|   |   |       `-- RfcItem.ts
 |   |   `-- context
 |   |       |-- user
 |   |       |   `-- main.user.ts
@@ -146,4 +148,4 @@
 |-- tsconfig.json
 `-- webpack.config.js
 
-69 directories, 77 files
+70 directories, 78 files

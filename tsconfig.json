@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES5",
+    "target": "ESNext",
     "module": "ESNext",
     "strict": true,
     "esModuleInterop": true,
@@ -12,6 +12,7 @@
       "@common/*": ["common/*"],
       "@core/*": ["common/core/*"],
       "@component/*": ["common/component/*"],
+      "@web-component/*": ["common/web-component/*"],
       "@context/*": ["context/*"],
       "@shared-context/*": ["context/shared/*"]
     }

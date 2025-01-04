@@ -29,17 +29,16 @@
         <div class="container">
             <h2>{{ title }}</h2>
         </div>
-        <div class="container color-{{ type }}">
+        <div class="container container-flex">
             {% for item in items %}
-                <rfc
+                <rfc-item
                         data-pathname="{{ item.pathname }}"
                         data-title="{{ item.title }}"
                         data-type="{{ item.type }}"
                         data-version="{{ item.version }}"
                         data-status="{{ item.status }}"
                         data-php-link="{{ item.phpLink }}"
-                >{{ item.title }}</rfc>
-                <hr/>
+                >{{ item.title }}</rfc-item>
             {% endfor %}
         </div>
     </section>

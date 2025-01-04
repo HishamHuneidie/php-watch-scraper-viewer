@@ -45,6 +45,12 @@ Encore
     .enableVersioning(Encore.isProduction())
     .enableBuildNotifications(false)
 
+    // enables and configure @babel/preset-env polyfills
+    .configureBabelPresetEnv((config) => {
+        config.useBuiltIns = 'usage';
+        config.corejs = '3.23';
+    })
+
     // enables Sass/SCSS support
     .enableSassLoader()
 
@@ -60,6 +66,7 @@ Encore
         '@common': path.resolve(__dirname, 'assets/scripts/common'),
         '@core': path.resolve(__dirname, 'assets/scripts/common/core'),
         '@component': path.resolve(__dirname, 'assets/scripts/common/component'),
+        '@web-component': path.resolve(__dirname, 'assets/scripts/common/web-component'),
         '@context': path.resolve(__dirname, 'assets/scripts/context'),
         '@shared-context': path.resolve(__dirname, 'assets/scripts/context/shared'),
     })

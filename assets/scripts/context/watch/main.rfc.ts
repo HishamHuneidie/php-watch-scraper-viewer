@@ -1,4 +1,6 @@
-import Rfc from '@context/watch/domain/Rfc.ts';
+import 'document-register-element';
+import '@web-component/RfcItem';
+import Rfc from '@context/watch/domain/Rfc';
 
 console.log('ini: context=Rfc');
 

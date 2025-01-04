@@ -160,6 +160,19 @@ strong, em, b, i {
     margin-bottom: 0;
 }
 
+.section .container.container-flex {
+    gap: 10px 20px;
+    row-gap: 10px;
+    display: flex;
+    column-gap: 20px;
+    flex-wrap: wrap;
+}
+
+.section .container.container-flex > * {
+    order:4;
+    width:auto;
+}
+
 
 .item-list {
     list-style: none;
