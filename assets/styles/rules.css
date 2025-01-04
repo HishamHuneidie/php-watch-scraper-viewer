@@ -5,6 +5,7 @@
     box-sizing: border-box;
     color: var(--app-font-color);
 }
+
 *:not(.icon) {
     font-family: sans-serif, Arial;
 }
@@ -26,11 +27,15 @@
     --app-menu-item-size: 40px;
     --app-menu-width-padding: calc(var(--app-menu-width-hover) / 2);
     --app-menu-shadow: 0 20px 20px 7px rgba(0, 0, 0, .15);
+    /* Modals */
+    --app-modal-head-height: 35px;
+    --app-modal-head-padding: 15px;
     /* General */
+    --app-background: #212830;
     --app-background-dark: #151b23;
+    --app-overlay-1: rgba(0, 0, 0, .5);
     --app-radius-1: 5px;
     --app-radius-2: 10px;
-    --app-background: #212830;
     --app-center-width: 1200px;
 }
 
@@ -171,8 +176,8 @@ strong, em, b, i {
 }
 
 .section .container.container-flex > * {
-    order:4;
-    width:auto;
+    order: 4;
+    width: auto;
 }
 
 
@@ -221,7 +226,7 @@ strong, em, b, i {
     padding: 0 15px;
     background: #fff;
     border: 1px solid #e1e1e1;
-    border-radius: var(--app-radius-2);
+    border-radius: var(--app-radius-1);
     cursor: pointer;
 }
 
@@ -275,6 +280,21 @@ strong, em, b, i {
 
 .btn.btn-success > .text-icon,
 .btn.btn-success > .text {
+    color: #fff;
+}
+
+
+.btn.btn-secondary {
+    background: #6c757d;
+    border: 1px solid #5a6268;
+}
+
+.btn.btn-secondary:hover {
+    background: #5a6268;
+}
+
+.btn.btn-secondary > .text-icon,
+.btn.btn-secondary > .text {
     color: #fff;
 }
 

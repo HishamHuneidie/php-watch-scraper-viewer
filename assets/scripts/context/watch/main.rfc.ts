@@ -1,8 +1,7 @@
 import 'document-register-element';
 import '@web-component/RfcItem';
 import Rfc from '@context/watch/domain/Rfc';
-
-console.log('ini: context=Rfc');
+import Modal from '@component/Modal';
 
 const init = (e: Event): void => {
 
@@ -15,7 +14,8 @@ const init = (e: Event): void => {
         'https://php.net/new_feature'
     );
 
-    console.log('log:', rfc);
+    // language=CSS
+    const modal = new Modal('#modal-php-net-viewer');
 };
 
 window.addEventListener('load', init);

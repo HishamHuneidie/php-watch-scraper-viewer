@@ -20,5 +20,6 @@
   "files": [
     "./assets/app.ts"
   ],
+  "include": ["assets/*.ts", "assets/**/*.ts"],
   "exclude": ["node_modules"]
 }

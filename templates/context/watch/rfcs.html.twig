@@ -20,6 +20,10 @@
     {{ _self.renderContainer('Removed', 'rfc-alert', rfcList_rem) }}
 {% endblock %}
 
+{% block modals %}
+    {% include 'context/watch/_partials/modal-php-net-viewer.html.twig' %}
+{% endblock %}
+
 {% block js %}
     {{ encore_entry_script_tags('script/watch/rfc') }}
 {% endblock %}

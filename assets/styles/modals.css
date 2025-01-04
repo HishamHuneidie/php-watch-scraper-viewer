@@ -1,0 +1,96 @@
+.modal,
+.modal * {
+    transition-property: all;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-out;
+}
+
+.modal {
+    position: fixed;
+    z-index: 1001;
+    padding: 30px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100vw;
+    height: 100vh;
+    background: var(--app-overlay-1);
+    opacity: 0;
+    visibility: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal .modal-window {
+    width: 850px;
+    border-radius: var(--app-radius-1);
+    overflow: hidden;
+    box-shadow: var(--app-menu-shadow);
+    transform: scale(.8) translateX(25%);
+}
+
+.modal.show .modal-window {
+    transform: scale(1) translateX(0);
+}
+
+
+/* ------------------ Head ------------------ */
+/* ------------------ Head ------------------ */
+/* ------------------ Head ------------------ */
+
+
+.modal .modal-window .modal-window-head {
+    height: var(--app-modal-head-height);
+    line-height: var(--app-modal-head-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--app-background-dark);
+    user-select: none;
+}
+
+.modal .modal-window .modal-window-head .modal-window-head-child {
+    display: flex;
+    align-items: center;
+    height: inherit;;
+    line-height: inherit;
+}
+
+.modal .modal-window .modal-window-head .modal-window-head-left {
+    justify-content: flex-start;
+}
+
+.modal .modal-window .modal-window-head .modal-window-head-right {
+    justify-content: flex-end;
+}
+
+.modal .modal-window .modal-window-head .modal-window-head-left p {
+    padding: 0 15px;
+}
+
+
+/* ------------------ Head ------------------ */
+/* ------------------ Head ------------------ */
+/* ------------------ Head ------------------ */
+
+
+.modal .modal-window .modal-window-body {
+    background: #fff;
+    padding: var(--app-modal-head-padding);
+}
+
+
+/* ------------------ Head ------------------ */
+/* ------------------ Head ------------------ */
+/* ------------------ Head ------------------ */
+
+
+.modal .modal-window .modal-window-footer {
+    background: #e5e5e5;
+    padding: var(--app-modal-head-padding);
+}
