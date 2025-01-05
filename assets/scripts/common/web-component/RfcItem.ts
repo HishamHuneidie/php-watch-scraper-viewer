@@ -89,7 +89,6 @@ class RfcItem extends HTMLElement {
                 width: 100%;
                 overflow: hidden;
                 text-overflow: ellipsis;
-                color: rgba(255, 255, 255, .5);
             }
 
             .text.text-title {
