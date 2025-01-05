@@ -10,15 +10,13 @@ class Modal {
     readonly footer: null | Element;
     readonly closeButtons: Array<Element>;
     readonly footerButtons: Map<string, Element>;
-    static modals: Map<string, Element> = new Map();
+    static modals: Map<string, Modal> = new Map();
 
-    constructor(id: string) {
+    private constructor(id: string) {
         const {modal, window} = this.findMainElements(id);
         this.id = id;
         this.modal = modal;
         this.window = window;
-
-        Modal.modals.set(id, modal);
 
         const {head, body, footer} = this.findSecondaryElements(window);
         this.head = head;
@@ -50,6 +48,16 @@ class Modal {
 
         this.observe();
         this.setEvents();
+
+        Modal.modals.set(id, this);
+    }
+
+    public static instance(id: string): Modal {
+        let modal: undefined | Modal = Modal.modals.get(id);
+
+        if (modal) return modal;
+
+        return new Modal(id);
     }
 
     /**
@@ -125,10 +133,10 @@ class Modal {
         this.closeButtons.forEach((button: Element): void => {
             button.addEventListener('click', (e: Event): void => {
                 const modalId: null | string = button.getAttribute('data-modal-id');
-                const modal: undefined | Element = Modal.modals.get(modalId as string);
+                const modal: undefined | Modal = Modal.modals.get(modalId as string);
 
                 if (modal) {
-                    modal.classList.remove('show');
+                    modal.close();
                 }
             });
         });
@@ -144,12 +152,25 @@ class Modal {
         return this.footerButtons.get(action);
     }
 
-    public static open(modal: Element): void {
-        modal.classList.add('show');
+    /**
+     * Opens the modal
+     */
+    public open(): void {
+        this.modal.classList.add('show');
     }
 
-    public static close(modal: Element): void {
-        modal.classList.remove('show');
+    /**
+     * Hides the modal
+     */
+    public close(): void {
+        this.modal.classList.remove('show');
+    }
+
+    /**
+     * Shows a loader in the modal
+     */
+    public load(loaderStatus: boolean): void {
+        this.modal.setAttribute('data-loader', loaderStatus ? 'true' : 'false');
     }
 }
 

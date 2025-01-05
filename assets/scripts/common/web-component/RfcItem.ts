@@ -1,4 +1,6 @@
+import {HttpRequest, Result} from "@component/Http";
 import Modal from "@component/Modal";
+import Rfc from "@context/watch/domain/Rfc";
 
 class RfcItem extends HTMLElement {
     connectedCallback() {
@@ -15,6 +17,7 @@ class RfcItem extends HTMLElement {
         title.innerHTML = this.getAttribute('data-title') ?? '';
         icon.dataset.pathname = this.getAttribute('data-pathname') ?? '';
         icon.dataset.phpLink = '';
+        icon.dataset.modalId = this.getAttribute('data-modal-id') ?? '';
 
         const type = this.getAttribute('data-type') ?? '';
         const version = this.getAttribute('data-version') ?? '';
@@ -171,20 +174,61 @@ class RfcItem extends HTMLElement {
         shadow.appendChild(badges);
     }
 
-    private setEvents(nodes: { icon }): void {
+    private setEvents(nodes: { icon: Element }): void {
         const {icon} = nodes;
 
-        icon.addEventListener('click', (e: Event): void => {
+        icon.addEventListener('click', async (e: Event): Promise<void> => {
             const icon: Element = (e.currentTarget as Element);
+            const pathname: string = icon.getAttribute('data-pathname') ?? '';
             const phpLink: null | string = icon.getAttribute('data-php-link') ?? null;
-            const modalId: string = icon.getAttribute('data-modal-id');
-            const modal: undefined | Element = Modal.modals.get(modalId);
+            const modalId: string = icon.getAttribute('data-modal-id') ?? '';
+            const modal: undefined | Modal = Modal.modals.get(modalId);
 
             if (phpLink && modal) {
-                return Modal.open(modal);
+                const frame: null | Element = modal.modal.querySelector('iframe') ?? null;
+
+                if (frame) {
+                    frame.setAttribute('src', phpLink);
+                    modal.load(false);
+                    return modal.open();
+                }
             }
 
+            if (!modal) {
+                return;
+            }
+
+            modal.load(true);
+            modal.open();
+
             // TODO: Call ajax
+            const request = HttpRequest.create(`/watch/${pathname}`, {
+                method: 'GET'
+            });
+
+            try {
+                const result: Result = await request.execute();
+
+                if (!result.isSuccess()) {
+                    // TODO: Show errors
+                    console.log('cambur: noSuccess:', result);
+                }
+
+                const data: Rfc = result.data;
+                const frame: null | Element = modal.modal.querySelector('iframe') ?? null;
+
+                if (frame) {
+                    frame.setAttribute('src', data.phpLink);
+                    icon.setAttribute('data-php-link', data.phpLink);
+                    modal.load(false);
+                    return modal.open();
+                }
+
+                console.log('cambur: data:', data);
+            } catch (e) {
+                // TODO: Show errors
+                console.log('cambur: catch:', e);
+            }
         });
     }
 }

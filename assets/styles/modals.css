@@ -32,6 +32,39 @@
     overflow: hidden;
     box-shadow: var(--app-menu-shadow);
     transform: scale(.8) translateX(25%);
+    position: relative;
+    z-index: 1100;
+}
+
+.modal .modal-window .modal-loader {
+    content: '';
+    position: absolute;
+    z-index: 1100;
+    top: var(--app-modal-head-height);
+    left: 0;
+    width: 100%;
+    height: calc(100% - var(--app-modal-head-height));
+    background: var(--app-overlay-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal[data-loader=true] .modal-window .modal-loader {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal .modal-window .modal-loader .icon {
+    --size: 50px;
+    font-size: 40px;
+    color: var(--app-background);
+    height: var(--size);
+    line-height: var(--size);
+    width: var(--size);
+    animation: rotateLoader 1s infinite;
 }
 
 .modal.show .modal-window {
@@ -80,6 +113,8 @@
 
 
 .modal .modal-window .modal-window-body {
+    max-height: calc(100vh - 150px);
+    overflow: auto;
     background: #fff;
     padding: var(--app-modal-head-padding);
 }
@@ -93,4 +128,19 @@
 .modal .modal-window .modal-window-footer {
     background: #e5e5e5;
     padding: var(--app-modal-head-padding);
+}
+
+
+/* ------------------ Animations ------------------ */
+/* ------------------ Animations ------------------ */
+/* ------------------ Animations ------------------ */
+
+
+@keyframes rotateLoader {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }

@@ -15,7 +15,7 @@ const init = (e: Event): void => {
     );
 
     // language=CSS
-    const modal = new Modal('#modal-php-net-viewer');
+    const modal: Modal = Modal.instance('#modal-php-net-viewer');
 };
 
 window.addEventListener('load', init);

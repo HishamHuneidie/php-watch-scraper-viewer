@@ -4,8 +4,8 @@ namespace App\Context\Watch\Web;
 
 use App\Common\Exception\CommonException;
 use App\Context\Watch\Application\Dto\EscapedPathnameVoDto;
-use App\Context\Watch\Application\UseCase\RfcByPathname\RfcByPathname;
-use App\Context\Watch\Application\UseCase\RfcList\RfcList;
+use App\Context\Watch\Application\UseCase\RfcByPathname\GetRfcByPathname;
+use App\Context\Watch\Application\UseCase\RfcList\GetRfcList;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -14,10 +14,10 @@ use Symfony\Component\Routing\Attribute\Route;
 final class RfcController extends AbstractController
 {
     #[Route('/', name: 'findAll', methods: ['GET'])]
-    public function list(RfcList $rfcList): Response
+    public function list(GetRfcList $getRfcList): Response
     {
         try {
-            $rfcs = $rfcList->execute();
+            $rfcs = $getRfcList->execute();
         } catch (CommonException $e) {
             return $this->json(['errors']);
         }
@@ -28,11 +28,11 @@ final class RfcController extends AbstractController
     }
 
     #[Route('/{pathname}', name: 'findByPathname', methods: ['GET'])]
-    public function get(string $pathname, RfcByPathname $rfcByPathname): Response
+    public function get(string $pathname, GetRfcByPathname $getRfcByPathname): Response
     {
         try {
             $pathnameVoDto = EscapedPathnameVoDto::create($pathname);
-            $rfc = $rfcByPathname->execute($pathnameVoDto);
+            $rfc = $getRfcByPathname->execute($pathnameVoDto);
         } catch (CommonException $e) {
             return $this->json(['errors']);
         }

@@ -10,7 +10,7 @@ use App\Context\Watch\Application\Mapper\RfcMapper;
 use App\Context\Watch\Domain\Repository\RfcRepositoryInterface;
 use App\Context\Watch\Infrastructure\Persistence\Repository\RfcRepository;
 
-final readonly class RfcList
+final readonly class GetRfcList
 {
     /**
      * @param RfcRepository $repository
