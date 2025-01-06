@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Context\Watch\Application\UseCase\RfcList;
+namespace App\Context\Watch\Application\UseCase\GetRfcList;
 
 use App\Common\Mapper\MapperException;
 use App\Common\Repository\RepositoryException;

@@ -4,7 +4,7 @@ namespace App\Context\Watch\Api;
 
 use App\Common\Exception\CommonException;
 use App\Context\Watch\Application\Dto\EscapedPathnameVoDto;
-use App\Context\Watch\Application\UseCase\RfcByPathname\GetRfcByPathname;
+use App\Context\Watch\Application\UseCase\GetRfcByPathname\GetRfcByPathname;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Attribute\Route;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Context\Watch\Application\UseCase\RfcByPathname;
+namespace App\Context\Watch\Application\UseCase\GetRfcByPathname;
 
 use App\Common\Mapper\MapperException;
 use App\Common\Repository\RepositoryException;

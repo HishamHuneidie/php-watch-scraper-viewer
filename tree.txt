@@ -115,8 +115,8 @@
 |   |       |   |   |-- PathnameVoMapper.php
 |   |       |   |   `-- RfcMapper.php
 |   |       |   `-- UseCase
-|   |       |       |-- RfcByPathname
-|   |       |       `-- RfcList
+|   |       |       |-- GetRfcByPathname
+|   |       |       `-- GetRfcList
 |   |       |-- Domain
 |   |       |   |-- Entity
 |   |       |   |   |-- PathnameVo.php
@@ -127,7 +127,8 @@
 |   |       |   `-- Persistence
 |   |       |       `-- Repository
 |   |       `-- Web
-|   |           `-- RfcController.php
+|   |           |-- RfcController.php
+|   |           `-- VersionController.php
 |   `-- Kernel.php
 |-- templates
 |   |-- context
@@ -146,7 +147,8 @@
 |   |       |   |   `-- menu.html.twig
 |   |       |   `-- base_watch.html.twig
 |   |       |-- rfc.html.twig
-|   |       `-- rfcs.html.twig
+|   |       |-- rfcs.html.twig
+|   |       `-- versions.html.twig
 |   `-- layout
 |       |-- _partials
 |       |   `-- menu.html.twig
@@ -155,4 +157,4 @@
 |-- tsconfig.json
 `-- webpack.config.js
 
-71 directories, 84 files
+71 directories, 86 files
