@@ -23,6 +23,7 @@ Encore
     /* Base files */
     .addEntry('script/user', './assets/scripts/context/user/main.user.ts')
     .addEntry('script/watch/rfc', './assets/scripts/context/watch/main.rfc.ts')
+    .addEntry('script/watch/version', './assets/scripts/context/watch/main.version.ts')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()

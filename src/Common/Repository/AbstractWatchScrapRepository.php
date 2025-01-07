@@ -9,12 +9,12 @@ use Symfony\Component\DomCrawler\Crawler;
 /**
  * Client to do WebScraping
  */
-abstract class AbstractScrapRepository
+abstract class AbstractWatchScrapRepository
 {
-    protected readonly string $baseUrl;
+    private readonly string $baseUrl;
 
     public function __construct(
-        protected readonly HttpBrowser $client,
+        private readonly HttpBrowser $client,
     )
     {
         $this->baseUrl = 'https://php.watch/';

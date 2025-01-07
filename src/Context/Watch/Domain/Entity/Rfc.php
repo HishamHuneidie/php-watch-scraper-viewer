@@ -27,4 +27,5 @@ final readonly class Rfc
         private string     $status,
         private string     $phpLink = '',
     ) {}
+
 }

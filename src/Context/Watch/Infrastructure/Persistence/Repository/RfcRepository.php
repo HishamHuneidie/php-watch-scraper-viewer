@@ -2,13 +2,13 @@
 
 namespace App\Context\Watch\Infrastructure\Persistence\Repository;
 
-use App\Common\Repository\AbstractScrapRepository;
+use App\Common\Repository\AbstractWatchScrapRepository;
 use App\Context\Watch\Domain\Entity\PathnameVo;
 use App\Context\Watch\Domain\Entity\Rfc;
 use App\Context\Watch\Domain\Repository\RfcRepositoryInterface;
 use Symfony\Component\DomCrawler\Crawler;
 
-class RfcRepository extends AbstractScrapRepository implements RfcRepositoryInterface
+class RfcRepository extends AbstractWatchScrapRepository implements RfcRepositoryInterface
 {
 
     /**

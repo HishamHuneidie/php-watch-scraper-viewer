@@ -15,4 +15,5 @@ final class RfcDto
         public string               $status,
         public string               $phpLink = '',
     ) {}
+
 }

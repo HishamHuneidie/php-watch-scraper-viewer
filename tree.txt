@@ -13,15 +13,18 @@
 |   |   |   |-- core
 |   |   |   |   `-- ElementUtils.ts
 |   |   |   `-- web-component
-|   |   |       `-- RfcItem.ts
+|   |   |       |-- RfcItem.ts
+|   |   |       `-- VersionItem.ts
 |   |   `-- context
 |   |       |-- user
 |   |       |   `-- main.user.ts
 |   |       `-- watch
 |   |           |-- domain
-|   |           |   `-- Rfc.ts
+|   |           |   |-- Rfc.ts
+|   |           |   `-- Version.ts
 |   |           |-- infrastructure
-|   |           `-- main.rfc.ts
+|   |           |-- main.rfc.ts
+|   |           `-- main.version.ts
 |   `-- styles
 |       |-- body.css
 |       |-- header.css
@@ -57,7 +60,7 @@
 |   |   |-- Mapper
 |   |   |   `-- MapperException.php
 |   |   |-- Repository
-|   |   |   |-- AbstractScrapRepository.php
+|   |   |   |-- AbstractWatchScrapRepository.php
 |   |   |   `-- RepositoryException.php
 |   |   |-- Util
 |   |   |   |-- EnumTrait.php
@@ -110,19 +113,26 @@
 |   |       |-- Application
 |   |       |   |-- Dto
 |   |       |   |   |-- EscapedPathnameVoDto.php
-|   |       |   |   `-- RfcDto.php
+|   |       |   |   |-- ReleaseVoDto.php
+|   |       |   |   |-- RfcDto.php
+|   |       |   |   `-- VersionDto.php
 |   |       |   |-- Mapper
 |   |       |   |   |-- PathnameVoMapper.php
-|   |       |   |   `-- RfcMapper.php
+|   |       |   |   |-- RfcMapper.php
+|   |       |   |   `-- VersionMapper.php
 |   |       |   `-- UseCase
 |   |       |       |-- GetRfcByPathname
-|   |       |       `-- GetRfcList
+|   |       |       |-- GetRfcList
+|   |       |       `-- GetVersionList
 |   |       |-- Domain
 |   |       |   |-- Entity
 |   |       |   |   |-- PathnameVo.php
-|   |       |   |   `-- Rfc.php
+|   |       |   |   |-- ReleaseVo.php
+|   |       |   |   |-- Rfc.php
+|   |       |   |   `-- Version.php
 |   |       |   `-- Repository
-|   |       |       `-- RfcRepositoryInterface.php
+|   |       |       |-- RfcRepositoryInterface.php
+|   |       |       `-- VersionRepositoryInterface.php
 |   |       |-- Infrastructure
 |   |       |   `-- Persistence
 |   |       |       `-- Repository
@@ -157,4 +167,4 @@
 |-- tsconfig.json
 `-- webpack.config.js
 
-71 directories, 86 files
+72 directories, 95 files

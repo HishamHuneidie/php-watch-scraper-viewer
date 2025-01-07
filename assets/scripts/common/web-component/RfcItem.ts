@@ -10,18 +10,18 @@ class RfcItem extends HTMLElement {
         // --------------- Nodes ---------------
         // --------------- Nodes ---------------
 
-        const title = document.createElement('p');
-        const icon = document.createElement('i');
-        const badges = document.createElement('p');
+        const title: HTMLElement = document.createElement('p');
+        const icon: HTMLElement = document.createElement('i');
+        const badges: HTMLElement = document.createElement('p');
 
         title.innerHTML = this.getAttribute('data-title') ?? '';
         icon.dataset.pathname = this.getAttribute('data-pathname') ?? '';
         icon.dataset.phpLink = '';
         icon.dataset.modalId = this.getAttribute('data-modal-id') ?? '';
 
-        const type = this.getAttribute('data-type') ?? '';
-        const version = this.getAttribute('data-version') ?? '';
-        const status = this.getAttribute('data-status') ?? '';
+        const type: string = this.getAttribute('data-type') ?? '';
+        const version: string = this.getAttribute('data-version') ?? '';
+        const status: string = this.getAttribute('data-status') ?? '';
         const typeObject = new TypeUtil(type);
         const versionObject = new VersionUtil(version);
         const statusObject = new StatusUtil(status);
@@ -200,7 +200,6 @@ class RfcItem extends HTMLElement {
             modal.load(true);
             modal.open();
 
-            // TODO: Call ajax
             const request = HttpRequest.create(`/watch/${pathname}`, {
                 method: 'GET'
             });
