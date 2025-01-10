@@ -1,3 +1,5 @@
+'use strict'
+
 class Rfc {
     readonly pathname: string;
     readonly title: string;

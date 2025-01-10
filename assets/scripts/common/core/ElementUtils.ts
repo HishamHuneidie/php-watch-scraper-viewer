@@ -1,3 +1,5 @@
+'use strict'
+
 declare global {
     interface HTMLElement {
         getParentByClass(className: string): null | HTMLElement;

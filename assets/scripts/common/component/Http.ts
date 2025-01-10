@@ -1,3 +1,5 @@
+'use strict'
+
 const BASE_URL: string = '/public/v1';
 
 type Method = 'GET' | 'POST' | 'PUT';

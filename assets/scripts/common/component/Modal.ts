@@ -1,3 +1,5 @@
+'use strict'
+
 /**
  * Utility: Helps to work with modals
  */

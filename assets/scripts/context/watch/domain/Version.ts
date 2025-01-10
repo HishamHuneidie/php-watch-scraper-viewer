@@ -1,3 +1,5 @@
+'use strict'
+
 /**
  * PHP Version
  */

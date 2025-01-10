@@ -1,3 +1,5 @@
+'use strict'
+
 import 'document-register-element';
 import '@web-component/VersionItem'
 

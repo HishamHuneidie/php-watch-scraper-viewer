@@ -1,3 +1,5 @@
+'use strict'
+
 import Version from '@context/watch/domain/Version';
 
 const baseUrl = 'https://php.watch';
