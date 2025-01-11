@@ -1,6 +1,7 @@
 #!/usr/bin/env php
 <?php
 
+use HishamHuneidie\ColoredTerminal\BackgroundColor;
 use HishamHuneidie\ColoredTerminal\Printer;
 use HishamHuneidie\ColoredTerminal\TextColor;
 
@@ -86,6 +87,13 @@ function hello(): void
            ->print();
 }
 
+function defaultCommand(): void
+{
+    Printer::newText("Warning: You have no chosen any command.")
+           ->setCombination(BackgroundColor::YELLOW, TextColor::BLACK)
+           ->print();
+}
+
 // Execute commands
 
 if ($action === 'help') {
@@ -102,3 +110,5 @@ if ($action === 'hello') {
     hello();
     die;
 }
+
+defaultCommand();
