@@ -14,7 +14,7 @@ TREE_FILE = tree.txt
 # Show a small explanation of this Makefile and its commands
 .PHONY: help
 help:
-	php .make/help.php
+	php ./bin/make_help help
 
 # Build containers and install composer dependencies
 .PHONY: build
@@ -24,17 +24,20 @@ build:
 	${DOCKER_COMPOSE} -p ${DOCKER_PREFIX} exec ${DOCKER_MAIN_CONTAINER} composer install
 	${DOCKER_COMPOSE} -p ${DOCKER_PREFIX} exec ${DOCKER_MAIN_CONTAINER} npm install
 	${DOCKER_COMPOSE} -p ${DOCKER_PREFIX} exec ${DOCKER_MAIN_CONTAINER} npm run dev
+	${DOCKER_COMPOSE} -p ${DOCKER_PREFIX} exec ${DOCKER_MAIN_CONTAINER} bin/make_help hello
 
 # Start containers
 .PHONY: start
 start:
 	${DOCKER_COMPOSE} -p ${DOCKER_PREFIX} stop
 	${DOCKER_COMPOSE} -p ${DOCKER_PREFIX} up -d
+	${DOCKER_COMPOSE} -p ${DOCKER_PREFIX} exec ${DOCKER_MAIN_CONTAINER} bin/make_help hello
 
 # Restart containers
 .PHONY: restart
 restart:
 	${DOCKER_COMPOSE} -p ${DOCKER_PREFIX} restart
+	${DOCKER_COMPOSE} -p ${DOCKER_PREFIX} exec ${DOCKER_MAIN_CONTAINER} bin/make_help hello
 
 # Stop containers
 .PHONY: stop
@@ -89,4 +92,4 @@ tree-commit:
 
 # This command is showed when the used command does not exist
 .DEFAULT:
-	php .make/error.php ${MAKECMDGOALS}
+	php ./bin/make_help errorCommand ${MAKECMDGOALS}

@@ -34,7 +34,8 @@
 |       |-- rules.css
 |       `-- scrollbar.css
 |-- bin
-|   `-- console
+|   |-- console
+|   `-- make_help
 |-- composer.json
 |-- composer.lock
 |-- config
@@ -167,4 +168,4 @@
 |-- tsconfig.json
 `-- webpack.config.js
 
-72 directories, 95 files
+72 directories, 96 files

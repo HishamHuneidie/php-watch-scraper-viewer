@@ -36,5 +36,9 @@
         "allow-plugins": {
             "symfony/runtime": true
         }
+    },
+    "minimum-stability": "dev",
+    "require-dev": {
+        "hishamhuneidie/colored-terminal": "1.*"
     }
 }
